@@ -1,0 +1,7 @@
+default: >
+  SITE="https://gestion2.urjc.es/movilidadincoming/es/universidad/registro"
+  --require source
+  --verbose
+  --guess
+  -f pretty
+  --format html --out ./report/report.html
