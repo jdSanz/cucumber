@@ -7,4 +7,4 @@ gem 'cucumber'
 gem 'selenium-webdriver'
 
 ### Debug
-gem 'byebug', :git => 'https://github.com/deivid-rodriguez/byebug.git'
+#gem 'byebug', :git => 'https://github.com/deivid-rodriguez/byebug.git'
