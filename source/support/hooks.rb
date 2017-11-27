@@ -18,7 +18,7 @@ After do |scenario|
         last_tag = scenario.tags.last.name
         scenario_location = scenario.location.to_s.split('/').last
         file_name = "#{scenario_location}#{last_tag}#{Time.now.strftime('%y-%m-%d_%H:%M')}.png"
-        file_path = File.expand_path(File.dirname(__FILE__) + "/../../report/images/" + file_name)
+        file_path = File.expand_path(File.dirname(__FILE__) + "/../../report/#{$date}/images/" + file_name)
         @driver.screenshot(file_path)
     end
     @driver.quit
