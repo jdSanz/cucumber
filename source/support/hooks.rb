@@ -11,9 +11,11 @@ Before do |scenario|
 end
 
 After do |scenario|
+    
     if scenario.respond_to?('scenario_outline') then
         scenario = scenario.scenario_outline
     end
+
     if scenario.failed?
         last_tag = scenario.tags.last.name
         scenario_location = scenario.location.to_s.split('/').last
@@ -21,6 +23,7 @@ After do |scenario|
         file_path = File.expand_path(File.dirname(__FILE__) + "/../../report/#{$date}/images/" + file_name)
         @driver.screenshot(file_path)
     end
+    
     @driver.quit
 end
 

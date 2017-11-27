@@ -1,5 +1,5 @@
 
-When(/^the user fill the formulary and clear the data$/) do
+When(/^the user fills the formulary and clear the data$/) do
 	@current_page.clear_fields('ALEMANIA')
 end
 
