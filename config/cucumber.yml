@@ -8,8 +8,21 @@ default: >
   --require source
   --verbose
   --guess
-  -f pretty
-  -f html
-  -o ./report/<%= $date %>/report.html
-  -f json
-  -o ./report/<%= $date %>/report.json
+
+desktop: >
+  DEFAULT_URL="http://magritte.urjc.es/practicas"
+  WINDOW_SIZE=1220x700
+  -t @desktop
+  -r source
+
+mobile: >
+  DEFAULT_URL="http://magritte.urjc.es/practicas"
+  WINDOW_SIZE=768x700
+  -t @mobile
+  -r source
+
+tablet: >
+  DEFAULT_URL="http://magritte.urjc.es/practicas"
+  WINDOW_SIZE=400x700
+  -t @tablet
+  -r source

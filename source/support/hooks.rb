@@ -1,5 +1,5 @@
 require 'rspec'
-#require 'byebug'
+require 'byebug'
 require 'cucumber'
 require 'selenium-webdriver'
 
@@ -7,7 +7,10 @@ Selenium::WebDriver::Chrome.driver_path = "./chromedriver"
 
 Before do |scenario|
     @driver = Selenium::WebDriver.for(:chrome)
-    @driver.get ENV["SITE"]
+    @driver.get ENV["DEFAULT_URL"]
+
+    window_resize()
+    byebug
 end
 
 After do |scenario|
@@ -23,14 +26,15 @@ After do |scenario|
         file_path = File.expand_path(File.dirname(__FILE__) + "/../../report/#{$date}/images/" + file_name)
         @driver.screenshot(file_path)
     end
-    
+
     @driver.quit
 end
 
-Before('@prueba') do
-
+def window_resize(resolution = ENV['WINDOW_SIZE'])
+    width = resolution.split('x').first
+    height = resolution.split('x').last
+    @driver.manage.window.resize_to(width, height)
 end
-
 
 
 
