@@ -1,7 +1,15 @@
+<% $date = Time.now.strftime('%y-%m-%d_%H:%M') %>
+<% dir = "./report/#{$date}" %>
+<% Dir.mkdir dir unless File.exists?(dir)%>
+<% Dir.mkdir "#{dir}/error_images" unless File.exists?("#{dir}/error_images")%>
+
 default: >
   SITE="https://gestion2.urjc.es/movilidadincoming/es/universidad/registro"
   --require source
   --verbose
   --guess
   -f pretty
-  --format html --out ./report/report.html
+  -f html
+  -o ./report/<%= $date %>/android.html
+  -f json
+  -o ./report/<%= $date %>/android.json
